@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/apis/common/signup',function(req,res,next){
+router.post('/apis/common/signup',function(req,res,next){
 
 	res.json({
 		success : 1,
