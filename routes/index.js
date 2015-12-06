@@ -13,11 +13,9 @@ router.post('/apis/common/signup', function(req, res, next) {
 
 	
 
-<<<<<<< f925539aaf35e6fcc400d8fddc572d804fbfdd04
-	var signUpUser = req.body.signUpUser;
-=======
+
 	var signUpUser = req.body.signupuser;
->>>>>>> adds DB adapter
+
 
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query("SELECT * FROM users WHERE username='" + signUpUser.username + "'", function(err, result) {
