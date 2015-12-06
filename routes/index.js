@@ -38,17 +38,19 @@ router.post('/apis/common/signup', function(req, res, next) {
 	    	});	
 	    }else{
 
-	    	client.query("INSERT INTO users [username,password] VALUES('" + signUpUser.username + "','" + signUpUser.password + "')", function(err, result) {
-	    		done();
-	    		if (err) {
-	    			return next(err)
-	    		} else {
-	    			res.json({
-	    				success: 1,
-	    				message: 'Successfully signed up !'
-	    			});
-	    		}
-	    	});
+	    	console.log('user should be created')
+
+	    	// client.query("INSERT INTO users [username,password] VALUES('" + signUpUser.username + "','" + signUpUser.password + "')", function(err, result) {
+	    	// 	done();
+	    	// 	if (err) {
+	    	// 		return next(err)
+	    	// 	} else {
+	    	// 		res.json({
+	    	// 			success: 1,
+	    	// 			message: 'Successfully signed up !'
+	    	// 		});
+	    	// 	}
+	    	// });
 
 	    }
 	  });
