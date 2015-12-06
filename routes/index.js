@@ -55,7 +55,7 @@ router.post('/apis/common/signup', function(req, res, next) {
 
 });
 
-router.post('/apis/common/signup', function(req, res, next) {
+router.post('/apis/common/login', function(req, res, next) {
 
 
 
