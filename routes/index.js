@@ -23,6 +23,7 @@ router.post('/apis/common/signup', function(req, res, next) {
 		client.query("SELECT * FROM users WHERE username='" + signUpUser.username + "'", function(err, result) {
 			done();
 			if (err) {
+				console.log(err)
 				return next(err);
 			} else {
 
