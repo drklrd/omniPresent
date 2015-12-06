@@ -31,7 +31,7 @@ router.post('/apis/common/signup', function(req, res, next) {
 	    if(err) {
 	      return console.error('error running query', err);
 	    }
-	    console.log(result.rows[0].number);
+	    console.log(result);
 	  });
 	});
 
