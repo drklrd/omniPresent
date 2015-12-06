@@ -31,7 +31,26 @@ router.post('/apis/common/signup', function(req, res, next) {
 	    if(err) {
 	      return console.error('error running query', err);
 	    }
-	    console.log(result);
+	    if(result.rows.length){
+	    	res.json({
+	    		success: 0,
+	    		message: 'User Already exists ! Please login '
+	    	});	
+	    }else{
+
+	    	client.query("INSERT INTO users [username,password] VALUES('" + signUpUser.username + "','" + signUpUser.password + "')", function(err, result) {
+	    		done();
+	    		if (err) {
+	    			return next(err)
+	    		} else {
+	    			res.json({
+	    				success: 1,
+	    				message: 'Successfully signed up !'
+	    			});
+	    		}
+	    	});
+
+	    }
 	  });
 	});
 
@@ -45,23 +64,10 @@ router.post('/apis/common/signup', function(req, res, next) {
 
 	// 			var user = result;
 	// 			if (result.length) {
-	// 				res.json({
-	// 					success: 0,
-	// 					message: 'User Already exists ! Please login '
-	// 				});
+					
 	// 			} else {
 
-	// 				client.query("INSERT INTO users [username,password] VALUES('" + signUpUser.username + "','" + signUpUser.password + "')", function(err, result) {
-	// 					done();
-	// 					if (err) {
-	// 						return next(err)
-	// 					} else {
-	// 						res.json({
-	// 							success: 1,
-	// 							message: 'Successfully signed up !'
-	// 						});
-	// 					}
-	// 				});
+					
 
 	// 			}
 
