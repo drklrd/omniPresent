@@ -19,7 +19,7 @@ router.post('/apis/common/signup', function(req, res, next) {
 		password : req.body.password
 	}
 
-	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+	pg.connect('postgres://jpktrpwpkpudcn:jhmwPUIJ2gDdyfP8hG8_Ejxg5N@ec2-107-21-219-109.compute-1.amazonaws.com:5432/d9j617e8naorrt', function(err, client, done) {
 		client.query("SELECT * FROM users WHERE username='" + signUpUser.username + "'", function(err, result) {
 			done();
 			if (err) {
